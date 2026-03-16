@@ -1,6 +1,0 @@
-.vscode
-.local
-output
-/rules/apps/output
-/rules/verified_apps.output.json
-.DS_Store

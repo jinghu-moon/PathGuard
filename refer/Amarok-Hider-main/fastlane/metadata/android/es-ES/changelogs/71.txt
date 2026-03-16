@@ -1,5 +1,0 @@
-v0.8.6a2
-- Feliz año nuevo 2024 🎉
-- Arreglar botón de pánico no se inicia cuando el bloqueo de la aplicación está activada
-- Aplicar color dinámico MD3 por defecto en Android 13+.
-- Actualizar traducciones: Japonés, Portugués, Serbio, Español

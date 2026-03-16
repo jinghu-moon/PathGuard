@@ -1,3 +1,0 @@
-[submodule "fake-linker"]
-	path = fake-linker
-	url = https://github.com/sanfengAndroid/fake-linker.git

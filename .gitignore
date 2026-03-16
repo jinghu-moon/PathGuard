@@ -19,3 +19,8 @@ backup/
 tmp_*
 *.tmp
 run/
+
+# 工具/参考资料（不入仓库）
+refer/
+.spec-workflow/
+.tmp_patch
