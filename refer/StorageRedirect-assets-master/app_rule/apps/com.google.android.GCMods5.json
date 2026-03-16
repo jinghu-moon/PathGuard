@@ -1,0 +1,14 @@
+{
+    "package": "com.google.android.GCMods5",
+    "verified": true,
+    "authors": [
+        "leoleoasd"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

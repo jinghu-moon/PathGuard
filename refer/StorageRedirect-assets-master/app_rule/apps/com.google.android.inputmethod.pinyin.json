@@ -1,0 +1,14 @@
+{
+    "package": "com.google.android.inputmethod.pinyin",
+    "verified": true,
+    "authors": [
+        "simonsmh"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

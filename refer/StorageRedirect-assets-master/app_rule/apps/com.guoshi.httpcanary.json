@@ -1,0 +1,20 @@
+{
+  "verified": true,
+  "authors": [
+    "tehcneko",
+    "Night-stars-1"
+  ],
+  "behaviors": [
+    "@standard"
+  ],
+  "recommendation": "@unnecessary",
+  "non_standard_files": [],
+  "package": "com.guoshi.httpcanary",
+  "last_update": {
+    "target_api": 28,
+    "flags": "read_storage, write_storage",
+    "timestamp": 1659030123,
+    "version_code": 58,
+    "version_name": "3.3.6"
+  }
+}

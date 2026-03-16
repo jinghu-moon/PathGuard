@@ -1,0 +1,14 @@
+{
+    "package": "com.dyh.movienow",
+    "verified": false,
+    "authors": [
+        "lecx1205"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

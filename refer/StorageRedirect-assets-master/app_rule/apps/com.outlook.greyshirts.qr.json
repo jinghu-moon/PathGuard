@@ -1,0 +1,14 @@
+{
+    "package": "com.outlook.greyshirts.qr",
+    "verified": true,
+    "authors": [
+        "micahx"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

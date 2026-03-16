@@ -1,0 +1,14 @@
+{
+    "package": "moe.feng.nevo.decorators.enscreenshot",
+    "verified": true,
+    "authors": [
+        "Trumeet"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

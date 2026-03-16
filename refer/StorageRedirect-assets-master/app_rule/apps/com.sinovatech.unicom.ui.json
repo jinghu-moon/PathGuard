@@ -1,0 +1,14 @@
+{
+    "package": "com.sinovatech.unicom.ui",
+    "verified": false,
+    "authors": [
+        "Bubble"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

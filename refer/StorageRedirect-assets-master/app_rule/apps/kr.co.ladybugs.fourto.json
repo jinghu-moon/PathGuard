@@ -1,0 +1,18 @@
+{
+    "package": "kr.co.ladybugs.fourto",
+    "verified": true,
+    "authors": [
+        "TinkMingKing"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard",
+        "<p>",
+        {
+            "zh_CN": "开启后只能检索标准文件夹中的图片。"
+        }
+    ]
+}

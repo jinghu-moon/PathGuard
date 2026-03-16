@@ -1,0 +1,14 @@
+{
+    "package": "com.jingyao.easybike",
+    "verified": false,
+    "authors": [
+        "IsaacSuen"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "package": "com.sd2w.hongyun.app",
+    "verified": false,
+    "authors": [
+        "wyy8087"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

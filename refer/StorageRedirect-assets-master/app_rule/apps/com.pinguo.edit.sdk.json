@@ -1,0 +1,14 @@
+{
+    "package": "com.pinguo.edit.sdk",
+    "verified": true,
+    "authors": [
+        "3207754367"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "package": "com.sony.songpal",
+    "verified": false,
+    "authors": [
+        "wyy8087"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse",
+        "<p>",
+        {
+            "zh_SG_#Hans": "开启后需要清理数据"
+        }
+    ]
+}

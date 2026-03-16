@@ -1,0 +1,14 @@
+{
+    "package": "com.dotamax.app",
+    "verified": false,
+    "authors": [
+        "slowbear"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

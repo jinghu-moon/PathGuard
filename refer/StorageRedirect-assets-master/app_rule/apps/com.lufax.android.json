@@ -1,0 +1,14 @@
+{
+    "package": "com.lufax.android",
+    "verified": false,
+    "authors": [
+        "Gemini-Shan"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

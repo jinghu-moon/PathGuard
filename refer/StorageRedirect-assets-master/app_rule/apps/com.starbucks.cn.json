@@ -1,0 +1,14 @@
+{
+    "package": "com.starbucks.cn",
+    "verified": false,
+    "authors": [
+        "zhaobozhen"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

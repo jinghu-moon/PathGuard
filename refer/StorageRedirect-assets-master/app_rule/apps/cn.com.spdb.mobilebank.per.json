@@ -1,0 +1,15 @@
+{
+    "package": "cn.com.spdb.mobilebank.per",
+    "verified": false,
+    "authors": [
+        "weetad",
+        "sakuyamaij"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "package": "com.miui.packageinstaller",
+    "verified": false,
+    "authors": [
+        "ArthurCyy"
+    ],
+    "last_update": {
+        "timestamp": 1666402016
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

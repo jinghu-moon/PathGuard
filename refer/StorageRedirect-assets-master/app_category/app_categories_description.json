@@ -1,0 +1,51 @@
+[
+  {
+    "type": "audio",
+    "description": {
+      "en": "This is an <b>audio & music app</b>. Usually you only need to set Accessible Folders correctly to use it normally.",
+      "zh_CN": "这是一个<b>音频类应用</b>。通常只需正确设置可访问文件夹便可正常使用。",
+      "zh_TW": "這是一個<b>音訊程式</b>。通常只需正確設定可訪問資料夾便可正常使用。"
+    }
+  },
+  {
+    "type": "game",
+    "description": {
+      "en": "This is a <b>game app</b>. In general, game apps shouldn't need to use shared storage. Please check the settings yourself if necessary.",
+      "zh_CN": "这是一个<b>游戏应用</b>。通常游戏应用不应该需要使用共享存储空间。如有必要，请自行检查设定。",
+      "zh_TW": "這是一個<b>遊戲程式</b>。通常遊戲程式不應該需要使用共享儲存空間。如有必要，請自行檢查設定。"
+    }
+  },
+  {
+    "type": "image"
+  },
+  {
+    "type": "maps",
+    "description": {
+      "en": "This is a <b>maps & navigation app</b>.",
+      "zh_CN": "这是一个<b>地图与导航应用</b>。",
+      "zh_TW": "這是一個<b>地圖與導航程式</b>。"
+    }
+  },
+  {
+    "type": "news",
+    "description": {
+      "en": "This is a <b>news app</b>.",
+      "zh_CN": "这是一个<b>新闻类应用</b>。",
+      "zh_TW": "這是一個<b>新聞程式</b>。"
+    }
+  },
+  {
+    "type": "productivity"
+  },
+  {
+    "type": "social",
+    "description": {
+      "en": "This is a <b>social app</b>.",
+      "zh_CN": "这是一个<b>社交类应用</b>。",
+      "zh_TW": "這是一個<b>社群程式</b>。"
+    }
+  },
+  {
+    "type": "video"
+  }
+]

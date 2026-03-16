@@ -1,0 +1,14 @@
+{
+    "package": "fr.gouv.etalab.mastodon",
+    "verified": true,
+    "authors": [
+        "mouyase"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

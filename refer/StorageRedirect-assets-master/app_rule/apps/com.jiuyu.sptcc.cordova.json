@@ -1,0 +1,14 @@
+{
+    "package": "com.jiuyu.sptcc.cordova",
+    "verified": false,
+    "authors": [
+        "FoobarRogers"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

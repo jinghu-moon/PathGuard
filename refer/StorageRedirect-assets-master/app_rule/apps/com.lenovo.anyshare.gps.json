@@ -1,0 +1,14 @@
+{
+    "package": "com.lenovo.anyshare.gps",
+    "verified": false,
+    "authors": [
+        "yuukoamamiya"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

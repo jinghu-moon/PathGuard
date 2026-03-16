@@ -1,0 +1,14 @@
+{
+    "package": "mao.filebrowser",
+    "verified": true,
+    "authors": [
+        "OharaRinne"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

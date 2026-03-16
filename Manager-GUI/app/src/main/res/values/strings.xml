@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Folder Manager</string>
+    <string name="rules_path_label">规则文件：/data/adb/modules/folder_manager/config/rules.ini</string>
+    <string name="status_idle">状态：待机</string>
+    <string name="action_load">加载规则</string>
+    <string name="action_save_reload">保存并重载</string>
+    <string name="action_reload">仅重载</string>
+    <string name="action_more">更多</string>
+    <string name="media_query_label">media_query</string>
+    <string name="media_query_apply">应用</string>
+    <string name="please_grant_root">请授予 Root 权限后重新打开应用</string>
+    <string name="welcome_title">Folder Manager</string>
+    <string name="welcome_desc">本应用需要 Root 权限以读写模块规则文件。
+请点击下方按钮授权，随后进入主界面。</string>
+    <string name="welcome_grant">授予 Root 权限</string>
+    <string name="welcome_checking">正在检测权限…</string>
+</resources>

@@ -1,0 +1,14 @@
+{
+    "package": "com.taobao.trip",
+    "verified": false,
+    "authors": [
+        "yuokay"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

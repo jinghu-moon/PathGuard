@@ -1,0 +1,18 @@
+{
+    "package": "com.NewDsemu.FreeDraStic",
+    "verified": false,
+    "authors": [
+        "ForbAvalon"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse",
+        "<p>",
+        {
+            "zh_CN": "推荐开启重定向，相关游戏文件请放在根目录下的标准文件夹中，否则无法使用快速存档。"
+        }
+    ]
+}

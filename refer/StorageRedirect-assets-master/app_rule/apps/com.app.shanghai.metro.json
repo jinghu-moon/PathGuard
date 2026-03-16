@@ -1,0 +1,27 @@
+{
+    "package": "com.app.shanghai.metro",
+    "verified": false,
+    "authors": [
+        "HYHYatt",
+        "sakuyamaij"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ],
+    "export_folders": {
+        "data": {
+            "saved_pictures_0": {
+                "title": "@saved_pictures",
+                "source": "大都会图片",
+                "target": "Pictures/大都会图片",
+                "call_media_scan": false,
+                "add_to_downloads": false,
+                "allow_child": false
+            }
+        }
+    }
+}

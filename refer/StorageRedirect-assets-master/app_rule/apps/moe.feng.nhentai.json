@@ -1,0 +1,14 @@
+{
+    "package": "moe.feng.nhentai",
+    "verified": false,
+    "authors": [
+        "beyondarmonia"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

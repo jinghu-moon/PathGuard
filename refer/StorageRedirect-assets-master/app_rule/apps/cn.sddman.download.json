@@ -1,0 +1,27 @@
+{
+    "package": "cn.sddman.download",
+    "verified": false,
+    "authors": [
+        "wewillchenoob"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ],
+    "export_folders": {
+        "data": {
+            "downloaded_files_0": {
+                "title": "@downloaded_files",
+                "source": "/ssdman/",
+                "target": "Download/SDDownloader",
+                "call_media_scan": false,
+                "add_to_downloads": false,
+                "allow_child": true,
+                "allow_temp": true
+            }
+        }
+    }
+}

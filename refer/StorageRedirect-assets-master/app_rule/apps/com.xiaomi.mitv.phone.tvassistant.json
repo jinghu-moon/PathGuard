@@ -1,0 +1,14 @@
+{
+    "package": "com.xiaomi.mitv.phone.tvassistant",
+    "verified": true,
+    "authors": [
+        "uinanfan32"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

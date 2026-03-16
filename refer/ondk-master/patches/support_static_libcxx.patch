@@ -1,0 +1,30 @@
+diff --git a/compiler/rustc_llvm/build.rs b/compiler/rustc_llvm/build.rs
+index c58dd64c..39af9a55 100644
+--- a/compiler/rustc_llvm/build.rs
++++ b/compiler/rustc_llvm/build.rs
+@@ -414,7 +414,6 @@ fn main() {
+     // C++ runtime library
+     if !target.contains("msvc") {
+         if let Some(s) = llvm_static_stdcpp {
+-            assert!(!cxxflags.contains("stdlib=libc++"));
+             let path = PathBuf::from(s);
+             println!("cargo:rustc-link-search=native={}", path.parent().unwrap().display());
+             if target.contains("windows") {
+diff --git a/src/bootstrap/src/core/build_steps/compile.rs b/src/bootstrap/src/core/build_steps/compile.rs
+index 11f2a28b..4aeed8ca 100644
+--- a/src/bootstrap/src/core/build_steps/compile.rs
++++ b/src/bootstrap/src/core/build_steps/compile.rs
+@@ -1496,8 +1496,11 @@ fn rustc_llvm_env(builder: &Builder<'_>, cargo: &mut Cargo, target: TargetSelect
+         && !target.contains("apple")
+         && !target.contains("solaris")
+     {
+-        let libstdcxx_name =
+-            if target.contains("windows-gnullvm") { "libc++.a" } else { "libstdc++.a" };
++        let libstdcxx_name = if target.contains("windows-gnullvm") || builder.config.llvm_use_libcxx {
++            "libc++.a"
++        } else {
++            "libstdc++.a"
++        };
+         let file = compiler_file(
+             builder,
+             &builder.cxx(target).unwrap(),

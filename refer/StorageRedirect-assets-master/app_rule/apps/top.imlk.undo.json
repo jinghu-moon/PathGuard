@@ -1,0 +1,14 @@
+{
+    "package": "top.imlk.undo",
+    "verified": true,
+    "authors": [
+        "YandexStudio"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

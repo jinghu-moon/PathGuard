@@ -1,0 +1,16 @@
+{
+  "verified": true,
+  "package": "com.mihoyo.hyperion",
+  "recommendation": "@unnecessary",
+  "non_standard_files": [],
+  "last_update": {
+    "target_api": 32,
+    "flags": "read_storage, write_storage",
+    "timestamp": 1668012482,
+    "version_name": "2.40.1",
+    "version_code": 2040001
+  },
+  "behaviors": [
+    "@standard"
+  ]
+}

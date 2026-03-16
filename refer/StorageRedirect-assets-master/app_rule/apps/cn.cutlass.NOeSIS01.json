@@ -1,0 +1,14 @@
+{
+    "package": "cn.cutlass.NOeSIS01",
+    "verified": true,
+    "authors": [
+        "DDoSolitary"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

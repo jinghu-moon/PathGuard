@@ -1,0 +1,41 @@
+{
+    "package": "com.kugou.android",
+    "verified": false,
+    "authors": [
+        "TinkMingKing",
+        "huanruomengyun"
+    ],
+    "last_update": {
+        "timestamp": 1586244547
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        {
+            "zh_CN": "开启后不建议自定义下载目录。"
+        }
+    ],
+    "export_folders": {
+        "data": {
+            "downloaded_music_0": {
+                "title": "@downloaded_music",
+                "source": "kgmusic/download",
+                "target": "Music/KuGou",
+                "call_media_scan": true,
+                "add_to_downloads": false,
+                "allow_child": true
+            },
+            "album_cover": {
+                "title": {
+                    "zh-CN": "专辑封面",
+                    "zh": "專輯封面",
+                    "en": "Album cover"
+                },
+                "source": "Pictures",
+                "target": "Music/KuGouCover",
+                "call_media_scan": false,
+                "add_to_downloads": false,
+                "allow_child": false
+            }
+        }
+    }
+}

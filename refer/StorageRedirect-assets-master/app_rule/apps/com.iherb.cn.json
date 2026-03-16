@@ -1,0 +1,14 @@
+{
+    "package": "com.iherb.cn",
+    "verified": false,
+    "authors": [
+        "paxprot"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

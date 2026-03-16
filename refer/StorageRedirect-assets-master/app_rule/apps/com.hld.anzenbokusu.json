@@ -1,0 +1,14 @@
+{
+    "package": "com.hld.anzenbokusu",
+    "verified": false,
+    "authors": [
+        "gingerbreap"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

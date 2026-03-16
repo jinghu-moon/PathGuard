@@ -1,0 +1,14 @@
+{
+    "package": "io.stellio.player",
+    "verified": true,
+    "authors": [
+        "OldFanta"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

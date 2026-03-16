@@ -1,0 +1,14 @@
+{
+    "package": "com.cubic.autohome",
+    "verified": false,
+    "authors": [
+        "akaDRJ"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

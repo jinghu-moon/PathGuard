@@ -1,0 +1,14 @@
+{
+    "package": "com.google.android.GoogleCameraEng",
+    "verified": true,
+    "authors": [
+        "piscesmk2013"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

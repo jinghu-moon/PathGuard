@@ -1,0 +1,16 @@
+{
+  "package": "jp.pxv.android",
+  "verified": true,
+  "authors": [
+    "lyaaz"
+  ],
+  "last_update": {
+    "timestamp": 1621092899,
+    "version_name": "5.0.235",
+    "version_code": 13829
+  },
+  "recommendation": "@unnecessary",
+  "behaviors": [
+    "@standard"
+  ]
+}

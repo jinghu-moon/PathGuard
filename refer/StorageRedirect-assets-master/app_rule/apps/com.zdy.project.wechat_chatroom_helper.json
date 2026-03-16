@@ -1,0 +1,26 @@
+{
+    "package": "com.zdy.project.wechat_chatroom_helper",
+    "verified": false,
+    "authors": [
+        "YandexStudio",
+        "zhxhwyzh14"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ],
+    "accessible_folders": {
+        "data": {
+            "wxqxxzs": {
+                "source_package": "com.zdy.project.wechat_chatroom_helper",
+                "target_package": "com.tencent.mm",
+                "paths": [
+                    "WechatChatroomHelper"
+                ]
+            }
+        }
+    }
+}

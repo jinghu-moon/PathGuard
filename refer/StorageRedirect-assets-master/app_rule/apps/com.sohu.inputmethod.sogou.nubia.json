@@ -1,0 +1,14 @@
+{
+    "package": "com.sohu.inputmethod.sogou.nubia",
+    "verified": false,
+    "authors": [
+        "benzBrake"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "package": "com.p1.mobile.putong",
+    "verified": false,
+    "authors": [
+        "tossp"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "package": "com.dmholdings.MarantzAVRRemote",
+    "verified": true,
+    "authors": [
+        "leeshaoheng"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

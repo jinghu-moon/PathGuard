@@ -1,0 +1,14 @@
+{
+    "package": "com.aurora.store",
+    "verified": true,
+    "authors": [
+        "Noah"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

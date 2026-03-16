@@ -1,0 +1,14 @@
+{
+    "package": "com.toshiba_dealin.developerhelper",
+    "verified": true,
+    "authors": [
+        "yiheng0"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

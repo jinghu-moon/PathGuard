@@ -1,0 +1,18 @@
+{
+    "package": "pw.janyo.janyoshare",
+    "verified": true,
+    "authors": [
+        "Mystery00"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard",
+        "<p>",
+        {
+            "zh": "用户可以自主选择存储路径"
+        }
+    ]
+}

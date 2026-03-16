@@ -1,0 +1,14 @@
+{
+    "package": "com.plexapp.android",
+    "verified": true,
+    "authors": [
+        "w0330t"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

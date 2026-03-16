@@ -1,0 +1,14 @@
+{
+    "package": "com.cnvcs.gomoku",
+    "verified": true,
+    "authors": [
+        "Sodium-Aluminate"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

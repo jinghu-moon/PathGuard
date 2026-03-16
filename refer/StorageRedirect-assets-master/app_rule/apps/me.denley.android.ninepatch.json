@@ -1,0 +1,18 @@
+{
+    "package": "me.denley.android.ninepatch",
+    "verified": true,
+    "authors": [
+        "aorosora"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard",
+        "<p>",
+        {
+            "en_US": "启用重定向后无法使用。"
+        }
+    ]
+}

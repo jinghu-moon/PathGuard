@@ -1,0 +1,14 @@
+{
+    "package": "com.tencent.android.qqdownloader",
+    "verified": false,
+    "authors": [
+        "Kay-Xingchi"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

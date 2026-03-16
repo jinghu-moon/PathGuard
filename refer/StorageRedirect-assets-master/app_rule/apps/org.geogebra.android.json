@@ -1,0 +1,15 @@
+{
+    "package": "org.geogebra.android",
+    "verified": false,
+    "authors": [
+        "Ne0fetch",
+        "gyj1109"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

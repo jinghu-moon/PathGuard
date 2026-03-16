@@ -1,0 +1,14 @@
+{
+    "package": "com.teamviewer.host.market",
+    "verified": true,
+    "authors": [
+        "frencis107"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

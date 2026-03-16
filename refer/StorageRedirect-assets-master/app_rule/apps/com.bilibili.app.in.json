@@ -1,0 +1,16 @@
+{
+    "package": "com.bilibili.app.in",
+    "verified": true,
+    "authors": [
+        "Shane",
+        "sjdhome",
+        "IJustWantANamePlease"
+    ],
+    "last_update": {
+        "timestamp": 1658671220
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

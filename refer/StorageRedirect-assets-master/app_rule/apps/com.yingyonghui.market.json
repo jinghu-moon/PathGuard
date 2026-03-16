@@ -1,0 +1,14 @@
+{
+    "package": "com.yingyonghui.market",
+    "verified": false,
+    "authors": [
+        "CyanoHao"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

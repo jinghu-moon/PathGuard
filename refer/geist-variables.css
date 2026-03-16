@@ -1,0 +1,397 @@
+/* ==========================================================================
+   Vercel Geist Design System — CSS Variables
+   Source: vercel.com/geist | github.com/vercel/geist-font
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   FONTS
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "HarmonyOS Sans SC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/HarmonyOS_SansSC_Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/FiraCode-Regular.woff2") format("woff2");
+}
+
+/*
+  Usage (Next.js):
+    import { GeistSans } from 'geist/font/sans';
+    import { GeistMono }  from 'geist/font/mono';
+
+  CSS Variables emitted:
+    --font-geist-sans
+    --font-geist-mono
+    --font-geist-pixel-square
+    --font-geist-pixel-grid
+    --font-geist-pixel-circle
+    --font-geist-pixel-triangle
+    --font-geist-pixel-line
+*/
+
+:root {
+  --font-sans:  "HarmonyOS Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+                "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono:  "Fira Code", ui-monospace, "SFMono-Regular", Menlo, Monaco,
+                "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
+}
+
+
+/* --------------------------------------------------------------------------
+   COLOR SCALES — Light Mode
+   10 scales × 10 steps each (100–1000)
+   Usage: var(--gray-100) … var(--gray-1000)
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* ── Gray ─────────────────────────────────────────────────────────────── */
+  --gray-100: #ffffff;
+  --gray-200: #fafafa;
+  --gray-300: #f5f5f5;
+  --gray-400: #ebebeb;
+  --gray-500: #e1e1e1;
+  --gray-600: #c8c8c8;
+  --gray-700: #a8a8a8;
+  --gray-800: #888888;
+  --gray-900: #6f6f6f;
+  --gray-1000: #171717;
+
+  /* ── Gray Alpha ───────────────────────────────────────────────────────── */
+  --gray-alpha-100: rgba(0, 0, 0, 0);
+  --gray-alpha-200: rgba(0, 0, 0, 0.02);
+  --gray-alpha-300: rgba(0, 0, 0, 0.04);
+  --gray-alpha-400: rgba(0, 0, 0, 0.08);
+  --gray-alpha-500: rgba(0, 0, 0, 0.12);
+  --gray-alpha-600: rgba(0, 0, 0, 0.22);
+  --gray-alpha-700: rgba(0, 0, 0, 0.34);
+  --gray-alpha-800: rgba(0, 0, 0, 0.47);
+  --gray-alpha-900: rgba(0, 0, 0, 0.56);
+  --gray-alpha-1000: rgba(0, 0, 0, 0.91);
+
+  /* ── Blue ─────────────────────────────────────────────────────────────── */
+  --blue-100: #f0f7ff;
+  --blue-200: #edf6ff;
+  --blue-300: #d8edfe;
+  --blue-400: #b8dbfd;
+  --blue-500: #84befc;
+  --blue-600: #419bf9;
+  --blue-700: #0072f5;
+  --blue-800: #006adc;
+  --blue-900: #0060cb;
+  --blue-1000: #00254d;
+
+  /* ── Red ──────────────────────────────────────────────────────────────── */
+  --red-100: #fff8f8;
+  --red-200: #fff0f0;
+  --red-300: #ffdcdc;
+  --red-400: #ffbcbc;
+  --red-500: #ff8080;
+  --red-600: #f84f4f;
+  --red-700: #e2483d;
+  --red-800: #d53030;
+  --red-900: #c02b2b;
+  --red-1000: #3c0f0f;
+
+  /* ── Amber ────────────────────────────────────────────────────────────── */
+  --amber-100: #fff9ed;
+  --amber-200: #fff3d3;
+  --amber-300: #ffe2a8;
+  --amber-400: #ffca6a;
+  --amber-500: #ffb237;
+  --amber-600: #ffad1a;
+  --amber-700: #f59e0b;
+  --amber-800: #dd8c00;
+  --amber-900: #c07a00;
+  --amber-1000: #3d2500;
+
+  /* ── Green ────────────────────────────────────────────────────────────── */
+  --green-100: #f0fdf4;
+  --green-200: #dcfce7;
+  --green-300: #bbf7d0;
+  --green-400: #86efac;
+  --green-500: #4ade80;
+  --green-600: #22c55e;
+  --green-700: #16a34a;
+  --green-800: #15803d;
+  --green-900: #166534;
+  --green-1000: #052e16;
+
+  /* ── Teal ─────────────────────────────────────────────────────────────── */
+  --teal-100: #f0fdfa;
+  --teal-200: #ccfbf1;
+  --teal-300: #99f6e4;
+  --teal-400: #5eead4;
+  --teal-500: #2dd4bf;
+  --teal-600: #14b8a6;
+  --teal-700: #0d9488;
+  --teal-800: #0f766e;
+  --teal-900: #115e59;
+  --teal-1000: #042f2e;
+
+  /* ── Purple ───────────────────────────────────────────────────────────── */
+  --purple-100: #faf5ff;
+  --purple-200: #f3e8ff;
+  --purple-300: #e9d5ff;
+  --purple-400: #d8b4fe;
+  --purple-500: #c084fc;
+  --purple-600: #a855f7;
+  --purple-700: #9333ea;
+  --purple-800: #7e22ce;
+  --purple-900: #6b21a8;
+  --purple-1000: #3b0764;
+
+  /* ── Pink ─────────────────────────────────────────────────────────────── */
+  --pink-100: #fff0f3;
+  --pink-200: #ffe4ec;
+  --pink-300: #ffb3c6;
+  --pink-400: #ff8fab;
+  --pink-500: #ff4d6d;
+  --pink-600: #f72585;
+  --pink-700: #c9184a;
+  --pink-800: #a4133c;
+  --pink-900: #800f2f;
+  --pink-1000: #370617;
+}
+
+
+/* --------------------------------------------------------------------------
+   BACKGROUND SEMANTIC TOKENS — Light Mode
+   -------------------------------------------------------------------------- */
+
+:root {
+  --background-100: #ffffff;   /* Default page background       */
+  --background-200: #fafafa;   /* Secondary / subtle background */
+}
+
+
+/* --------------------------------------------------------------------------
+   SEMANTIC COLOR TOKENS (legacy / geist-ui compat) — Light Mode
+   -------------------------------------------------------------------------- */
+
+:root {
+  --geist-white:      #ffffff;
+  --geist-black:      #000000;
+  --geist-background: var(--geist-white);
+  --geist-foreground: var(--geist-black);
+
+  /* Accents / Gray scale */
+  --accents-1: #fafafa;
+  --accents-2: #eaeaea;
+  --accents-3: #999999;
+  --accents-4: #888888;
+  --accents-5: #666666;
+  --accents-6: #444444;
+  --accents-7: #333333;
+  --accents-8: #111111;
+
+  /* Secondary */
+  --geist-secondary-lighter: var(--accents-2);
+  --geist-secondary-light:   var(--accents-3);
+  --geist-secondary:         var(--accents-5);
+  --geist-secondary-dark:    var(--accents-7);
+
+  /* Success / Blue */
+  --geist-success-lighter: #d3e5ff;
+  --geist-success-light:   #3291ff;
+  --geist-success:         #0070f3;
+  --geist-success-dark:    #0761d1;
+
+  /* Error / Red */
+  --geist-error-lighter: #f7d4d6;
+  --geist-error-light:   #ff1a1a;
+  --geist-error:         #ee0000;
+  --geist-error-dark:    #c50000;
+
+  /* Warning / Amber */
+  --geist-warning-lighter: #ffefcf;
+  --geist-warning-light:   #f7b955;
+  --geist-warning:         #f5a623;
+  --geist-warning-dark:    #ab570a;
+
+  /* Violet */
+  --geist-violet-lighter: #e3d7fc;
+  --geist-violet-light:   #8a63d2;
+  --geist-violet:         #7928ca;
+  --geist-violet-dark:    #4c2889;
+
+  /* Cyan */
+  --geist-cyan-lighter: #aaffec;
+  --geist-cyan-light:   #79ffe1;
+  --geist-cyan:         #50e3c2;
+  --geist-cyan-dark:    #29bc9b;
+
+  /* Highlights */
+  --geist-highlight-purple:  #f81ce5;
+  --geist-highlight-magenta: #eb367f;
+  --geist-highlight-pink:    #ff0080;
+  --geist-highlight-yellow:  #fff500;
+
+  /* Link & selection */
+  --geist-link-color: var(--geist-success);
+  --geist-selection:  var(--geist-cyan-light);
+  --shadow: rgba(0, 0, 0, 0.12);
+}
+
+
+/* --------------------------------------------------------------------------
+   SPACING
+   Base unit: 4px
+   -------------------------------------------------------------------------- */
+
+:root {
+  --geist-space:        4px;
+  --geist-space-2x:     8px;
+  --geist-space-4x:     16px;
+  --geist-space-8x:     32px;
+  --geist-space-16x:    64px;
+  --geist-space-24x:    96px;
+  --geist-space-32x:    128px;
+  --geist-space-48x:    192px;
+  --geist-space-64x:    256px;
+
+  --geist-space-small:  32px;
+  --geist-space-medium: 40px;
+  --geist-space-large:  48px;
+
+  --geist-space-gap:          24px;
+  --geist-space-gap-half:     12px;
+  --geist-space-gap-quarter:  var(--geist-space-2x);
+
+  /* Aliases */
+  --geist-gap:          var(--geist-space-gap);
+  --geist-gap-half:     var(--geist-space-gap-half);
+  --geist-gap-quarter:  var(--geist-space-gap-quarter);
+  --geist-gap-double:   var(--geist-space-large);
+
+  /* Negative spacing */
+  --geist-space-negative:          -4px;
+  --geist-space-2x-negative:       -8px;
+  --geist-space-4x-negative:       -16px;
+  --geist-space-8x-negative:       -32px;
+  --geist-space-16x-negative:      -64px;
+  --geist-space-24x-negative:      -96px;
+  --geist-space-32x-negative:      -128px;
+  --geist-space-48x-negative:      -192px;
+  --geist-space-64x-negative:      -256px;
+  --geist-space-gap-negative:      -24px;
+  --geist-space-gap-half-negative: -12px;
+  --geist-gap-negative:            var(--geist-space-gap-negative);
+  --geist-gap-half-negative:       var(--geist-space-gap-half-negative);
+  --geist-gap-double-negative:     -48px;
+}
+
+
+/* --------------------------------------------------------------------------
+   LAYOUT
+   -------------------------------------------------------------------------- */
+
+:root {
+  --geist-page-margin:            var(--geist-space-gap);
+  --geist-page-width:             1000px;
+  --geist-page-width-with-margin: 1048px;
+  --header-height:                64px;
+}
+
+
+/* --------------------------------------------------------------------------
+   BORDER RADIUS
+   -------------------------------------------------------------------------- */
+
+:root {
+  --geist-radius:            5px;
+  --geist-marketing-radius:  8px;
+}
+
+
+/* --------------------------------------------------------------------------
+   FORM / INPUT SIZES
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* Large */
+  --geist-form-large-font:        1rem;
+  --geist-form-large-line-height: 1.5rem;
+  --geist-form-large-height:      var(--geist-space-large);   /* 48px */
+
+  /* Default */
+  --geist-form-font:              0.875rem;
+  --geist-form-line-height:       1.25rem;
+  --geist-form-height:            var(--geist-space-medium);  /* 40px */
+
+  /* Small */
+  --geist-form-small-font:        0.875rem;
+  --geist-form-small-line-height: 0.875rem;
+  --geist-form-small-height:      var(--geist-space-small);   /* 32px */
+}
+
+
+/* --------------------------------------------------------------------------
+   COLOR SCALES — Dark Mode
+   -------------------------------------------------------------------------- */
+
+.dark-theme,
+[data-theme="dark"] {
+  /* Gray */
+  --gray-100: #1a1a1a;
+  --gray-200: #1f1f1f;
+  --gray-300: #292929;
+  --gray-400: #2e2e2e;
+  --gray-500: #454545;
+  --gray-600: #878787;
+  --gray-700: #8f8f8f;
+  --gray-800: #7d7d7d;
+  --gray-900: #a0a0a0;
+  --gray-1000: #ededed;
+
+  /* Gray Alpha */
+  --gray-alpha-100: rgba(255, 255, 255, 0);
+  --gray-alpha-200: rgba(255, 255, 255, 0.04);
+  --gray-alpha-300: rgba(255, 255, 255, 0.07);
+  --gray-alpha-400: rgba(255, 255, 255, 0.10);
+  --gray-alpha-500: rgba(255, 255, 255, 0.18);
+  --gray-alpha-600: rgba(255, 255, 255, 0.37);
+  --gray-alpha-700: rgba(255, 255, 255, 0.40);
+  --gray-alpha-800: rgba(255, 255, 255, 0.44);
+  --gray-alpha-900: rgba(255, 255, 255, 0.54);
+  --gray-alpha-1000: rgba(255, 255, 255, 0.92);
+
+  /* Backgrounds */
+  --background-100: #0a0a0a;
+  --background-200: #111111;
+}
+
+
+/* --------------------------------------------------------------------------
+   SEMANTIC TOKENS — Dark Mode overrides
+   -------------------------------------------------------------------------- */
+
+.dark-theme,
+[data-theme="dark"] {
+  --geist-foreground: var(--geist-white);
+  --geist-background: var(--geist-black);
+  --geist-selection:  var(--geist-highlight-purple);
+
+  --accents-1: #111111;
+  --accents-2: #333333;
+  --accents-3: #444444;
+  --accents-4: #666666;
+  --accents-5: #888888;
+  --accents-6: #999999;
+  --accents-7: #eaeaea;
+  --accents-8: #fafafa;
+
+  --geist-error-light: #ff3333;
+  --geist-error:       #ff0000;
+  --geist-error-dark:  #e60000;
+  --geist-link-color:  var(--geist-success-light);
+}

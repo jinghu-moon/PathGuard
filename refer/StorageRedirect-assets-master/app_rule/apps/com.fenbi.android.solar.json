@@ -1,0 +1,14 @@
+{
+    "package": "com.fenbi.android.solar",
+    "verified": false,
+    "authors": [
+        "sjdhome"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

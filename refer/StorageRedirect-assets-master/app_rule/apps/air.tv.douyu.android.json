@@ -1,0 +1,14 @@
+{
+    "package": "air.tv.douyu.android",
+    "verified": false,
+    "authors": [
+        "NIGHT-CORE"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

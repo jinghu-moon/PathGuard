@@ -1,0 +1,21 @@
+{
+  "package": "com.tencent.wemeet.app",
+  "verified": false,
+  "authors": [
+    "ArthurCyy"
+  ],
+  "last_update": {
+    "timestamp": 1665822377,
+    "version_name": "3.11.4.443",
+    "version_code": 2023360185
+  },
+  "recommendation": "@recommended",
+  "behaviors": [
+    "@abuse"
+  ],
+  "non_standard_files": [
+    ".tbs",
+    "QQBrowser",
+    "tencent"
+  ]
+}

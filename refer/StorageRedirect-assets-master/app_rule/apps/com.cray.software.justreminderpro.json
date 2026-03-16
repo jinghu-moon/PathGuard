@@ -1,0 +1,14 @@
+{
+    "package": "com.cray.software.justreminderpro",
+    "verified": false,
+    "authors": [
+        "qaz617"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

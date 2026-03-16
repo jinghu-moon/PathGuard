@@ -1,0 +1,16 @@
+{
+    "package": "com.twitter.android",
+    "verified": true,
+    "authors": [
+        "Ostiepo",
+        "HYHYatt",
+        "Shane"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

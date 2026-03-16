@@ -1,0 +1,18 @@
+{
+    "package": "com.taptap",
+    "verified": false,
+    "authors": [
+        "RiwiHow"
+    ],
+    "last_update": {
+        "timestamp": 1585135489
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        {
+            "zh-CN": "创建 data，Tencent（当使用 QQ 登录时）文件夹。",
+            "zh": "建立 data，Tencent（當使用 QQ 登入時）資料夾。",
+            "en": "Creates data and Tencent (when use QQ to login) folder."
+        }
+    ]
+}

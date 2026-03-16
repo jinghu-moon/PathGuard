@@ -1,0 +1,23 @@
+{
+    "package": "com.sflep.course",
+    "verified": false,
+    "authors": [
+        "Ne0fetch",
+        "RSSYLY"
+    ],
+    "non_standard_files": [
+        "backups",
+        "msc"
+      ],
+      "last_update": {
+        "target_api": 30,
+        "flags": "read_storage, write_storage, android_writeable",
+        "timestamp": 1666605322,
+        "version_name": "6.0.1011",
+        "version_code": 172
+      },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "package": "com.baidu.input_huawei",
+    "verified": false,
+    "authors": [
+        "kenvix"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

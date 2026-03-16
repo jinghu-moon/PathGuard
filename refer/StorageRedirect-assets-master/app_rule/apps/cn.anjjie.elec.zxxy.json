@@ -1,0 +1,14 @@
+{
+    "package": "cn.anjjie.elec.zxxy",
+    "verified": false,
+    "authors": [
+        "Luke Yue"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

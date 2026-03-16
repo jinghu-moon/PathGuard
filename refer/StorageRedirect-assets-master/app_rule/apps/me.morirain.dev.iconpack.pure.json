@@ -1,0 +1,18 @@
+{
+  "label": "PureIconPack",
+  "package": "me.morirain.dev.iconpack.pure",
+  "authors": [
+    "YJ-L",
+    "Skimige",
+    "sakuyamaij"
+  ],
+  "last_update": {
+    "timestamp": 1592133021,
+    "version_name": "7.7 Heal The World",
+    "version_code": 1920041601
+  },
+  "recommendation": "@unnecessary",
+  "behaviors": [
+    "@standard"
+  ]
+}

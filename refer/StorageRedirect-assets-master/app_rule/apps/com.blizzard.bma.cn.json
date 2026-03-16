@@ -1,0 +1,14 @@
+{
+    "package": "com.blizzard.bma.cn",
+    "verified": false,
+    "authors": [
+        "outlim"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

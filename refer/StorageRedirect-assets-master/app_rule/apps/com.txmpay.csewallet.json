@@ -1,0 +1,14 @@
+{
+    "package": "com.txmpay.csewallet",
+    "verified": false,
+    "authors": [
+        "mapleshadow"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

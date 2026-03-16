@@ -1,0 +1,29 @@
+{
+    "package": "com.hippo.ehviewer",
+    "verified": false,
+    "authors": [
+        "FoobarRogers",
+        "xianzheTM"
+    ],
+    "last_update": {
+        "timestamp": 1585130674
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        {
+            "zh-CN": "建立 Ehviewer 文件夹。",
+            "zh": "建立 Ehviewer 資料夾。",
+            "en": "Creates Ehviewer folder."
+        }
+    ],
+    "export_folders": {
+        "data": {
+            "saved_pictures_0": {
+                "title": "@saved_pictures",
+                "source": "EhViewer/download",
+                "target": "Pictures/EhViewer",
+                "call_media_scan": false
+            }
+        }
+    }
+}

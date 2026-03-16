@@ -1,0 +1,14 @@
+{
+    "package": "com.android.emergency",
+    "verified": true,
+    "authors": [
+        "Mirr0ch1"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "package": "com.crunchyroll.crunchyroid",
+    "verified": true,
+    "authors": [
+        "chisakaw"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

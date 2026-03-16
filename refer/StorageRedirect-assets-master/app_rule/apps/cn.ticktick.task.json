@@ -1,0 +1,14 @@
+{
+    "package": "cn.ticktick.task",
+    "verified": false,
+    "authors": [
+        "Ne0fetch"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "package": "com.srowen.bs.android",
+    "verified": true,
+    "authors": [
+        "studentmain"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

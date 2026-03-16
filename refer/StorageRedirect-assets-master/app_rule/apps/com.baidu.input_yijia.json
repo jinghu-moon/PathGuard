@@ -1,0 +1,14 @@
+{
+    "package": "com.baidu.input_yijia",
+    "verified": false,
+    "authors": [
+        "iamdennisme"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "package": "org.geogebra.android.g3d",
+    "verified": true,
+    "authors": [
+        "gyj1109"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

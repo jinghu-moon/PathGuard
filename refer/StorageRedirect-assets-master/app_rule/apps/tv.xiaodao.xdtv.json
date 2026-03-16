@@ -1,0 +1,18 @@
+{
+    "package": "tv.xiaodao.xdtv",
+    "verified": false,
+    "authors": [
+        "Vstory"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse",
+        "<p>",
+        {
+            "zh_CN": "根目录创造sdk等的文件夹"
+        }
+    ]
+}

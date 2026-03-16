@@ -1,0 +1,27 @@
+{
+    "package": "info.ebstudio.ebpocketfree",
+    "verified": false,
+    "authors": [
+        "ciskonc"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ],
+    "export_folders": {
+        "data": {
+            "saved_files_0": {
+                "title": "@saved_files",
+                "source": "EBPocket",
+                "target": "Documents/EBPocket",
+                "call_media_scan": false,
+                "add_to_downloads": false,
+                "allow_child": true,
+                "allow_temp": true
+            }
+        }
+    }
+}

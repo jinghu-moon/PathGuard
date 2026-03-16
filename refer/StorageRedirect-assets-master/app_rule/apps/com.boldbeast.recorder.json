@@ -1,0 +1,14 @@
+{
+    "package": "com.boldbeast.recorder",
+    "verified": false,
+    "authors": [
+        "oumu"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

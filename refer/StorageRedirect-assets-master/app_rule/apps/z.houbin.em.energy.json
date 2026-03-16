@@ -1,0 +1,14 @@
+{
+    "package": "z.houbin.em.energy",
+    "verified": false,
+    "authors": [
+        "reov"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

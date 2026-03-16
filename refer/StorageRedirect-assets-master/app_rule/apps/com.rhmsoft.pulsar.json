@@ -1,0 +1,14 @@
+{
+    "package": "com.rhmsoft.pulsar",
+    "verified": true,
+    "authors": [
+        "OpportunityLiu"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

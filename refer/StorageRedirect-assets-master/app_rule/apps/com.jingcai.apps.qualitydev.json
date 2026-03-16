@@ -1,0 +1,14 @@
+{
+    "package": "com.jingcai.apps.qualitydev",
+    "verified": false,
+    "authors": [
+        "Ckey1997"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

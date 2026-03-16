@@ -1,0 +1,18 @@
+{
+    "package": "pl.solidexplorer2",
+    "verified": true,
+    "authors": [
+        "simonsmh"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard",
+        "<p>",
+        {
+            "internal": "pure_file_manager"
+        }
+    ]
+}

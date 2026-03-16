@@ -1,0 +1,14 @@
+{
+    "package": "com.callpod.android_apps.keeper",
+    "verified": true,
+    "authors": [
+        "ShadowLyin"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

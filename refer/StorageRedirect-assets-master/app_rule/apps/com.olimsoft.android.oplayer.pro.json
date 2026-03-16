@@ -1,0 +1,20 @@
+{
+    "package": "com.olimsoft.android.oplayer.pro",
+    "verified": false,
+    "authors": [
+        "Maolaohei",
+        "skyline-89",
+        "ArthurCyy"
+    ],
+    "last_update": {
+        "timestamp": 1659544323
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse",
+        "<p>",
+        {
+            "zh_CN": "开启重定向，会导致搜索不到本地视频。"
+        }
+    ]
+}

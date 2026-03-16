@@ -1,0 +1,14 @@
+{
+    "package": "com.qdaily.ui",
+    "verified": false,
+    "authors": [
+        "ztxgeol"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

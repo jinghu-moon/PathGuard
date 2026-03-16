@@ -1,0 +1,14 @@
+{
+    "package": "tv.douyu",
+    "verified": false,
+    "authors": [
+        "lang-liu"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

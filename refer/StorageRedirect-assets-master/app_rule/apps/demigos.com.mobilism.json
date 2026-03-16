@@ -1,0 +1,24 @@
+{
+    "package": "demigos.com.mobilism",
+    "verified": false,
+    "authors": [
+        "fayeniko"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ],
+    "export_folders": {
+        "data": {
+            "downloaded_files_0": {
+                "title": "@downloaded_files",
+                "source": "Mobilism",
+                "target": "Download/Mobilism",
+                "add_to_downloads": true
+            }
+        }
+    }
+}

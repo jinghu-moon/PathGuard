@@ -1,0 +1,14 @@
+diff --git a/compiler/rustc_llvm/llvm-wrapper/LLVMWrapper.h b/compiler/rustc_llvm/llvm-wrapper/LLVMWrapper.h
+index f6598f9f..3fc79f47 100644
+--- a/compiler/rustc_llvm/llvm-wrapper/LLVMWrapper.h
++++ b/compiler/rustc_llvm/llvm-wrapper/LLVMWrapper.h
+@@ -14,6 +14,9 @@
+ 
+ #define LLVM_VERSION_LT(major, minor) (!LLVM_VERSION_GE((major), (minor)))
+ 
++#undef LLVM_VERSION_MAJOR
++#define LLVM_VERSION_MAJOR 20
++
+ extern "C" void LLVMRustSetLastError(const char *);
+ 
+ enum class LLVMRustResult { Success, Failure };

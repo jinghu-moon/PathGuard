@@ -1,0 +1,14 @@
+{
+    "package": "com.lenovo.vop",
+    "verified": false,
+    "authors": [
+        "jasonchan4"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

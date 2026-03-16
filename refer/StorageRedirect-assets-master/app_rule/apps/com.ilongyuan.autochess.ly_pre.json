@@ -1,0 +1,14 @@
+{
+    "package": "com.ilongyuan.autochess.ly_pre",
+    "verified": false,
+    "authors": [
+        "jsfaint"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

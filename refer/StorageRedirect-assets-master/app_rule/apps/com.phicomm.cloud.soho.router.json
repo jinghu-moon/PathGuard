@@ -1,0 +1,14 @@
+{
+    "package": "com.phicomm.cloud.soho.router",
+    "verified": false,
+    "authors": [
+        "zhxhwyzh14"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

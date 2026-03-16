@@ -1,0 +1,14 @@
+{
+    "package": "com.intel.ark",
+    "verified": true,
+    "authors": [
+        "KiritoMiao"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

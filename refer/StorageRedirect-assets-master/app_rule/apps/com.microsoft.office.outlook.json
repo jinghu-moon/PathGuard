@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "KiritoMiao",
+    "IJustWantANamePlease"
+  ],
+  "verified": true,
+  "package": "com.microsoft.office.outlook",
+  "recommendation": "@unnecessary",
+  "non_standard_files": [],
+  "last_update": {
+    "target_api": 30,
+    "flags": "read_storage, write_storage",
+    "timestamp": 1669117447,
+    "version_name": "4.2244.1",
+    "version_code": 42244817
+  },
+  "behaviors": [
+    "@standard"
+  ]
+}

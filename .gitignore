@@ -1,0 +1,21 @@
+# 构建产物
+dist/
+*.zip
+out/
+build/
+
+# 原生编译中间产物
+native/libs/
+native/obj/
+
+# 模块运行时产物（由构建脚本生成）
+module/zygisk/
+module/bin/
+
+# 备份（用 git tag 替代）
+backup/
+
+# 临时文件
+tmp_*
+*.tmp
+run/

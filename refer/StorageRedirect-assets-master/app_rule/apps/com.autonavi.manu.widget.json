@@ -1,0 +1,14 @@
+{
+    "package": "com.autonavi.manu.widget",
+    "verified": false,
+    "authors": [
+        "efsg"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

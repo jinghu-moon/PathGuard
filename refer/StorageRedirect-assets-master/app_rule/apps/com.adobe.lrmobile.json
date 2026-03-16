@@ -1,0 +1,15 @@
+{
+    "package": "com.adobe.lrmobile",
+    "verified": true,
+    "authors": [
+        "frencis107",
+        "sakuyamaij"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

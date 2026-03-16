@@ -1,0 +1,15 @@
+{
+    "package": "com.hengye.share",
+    "verified": false,
+    "authors": [
+        "nickyc4",
+        "xzsk2"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

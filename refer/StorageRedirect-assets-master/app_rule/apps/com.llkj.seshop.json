@@ -1,0 +1,14 @@
+{
+    "package": "com.llkj.seshop",
+    "verified": false,
+    "authors": [
+        "ffexis"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

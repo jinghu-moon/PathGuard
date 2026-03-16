@@ -1,0 +1,14 @@
+{
+    "package": "forgepond.com.mobileiron.android.securebrowser",
+    "verified": true,
+    "authors": [
+        "UVJkiNTQ"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "package": "com.miui.player",
+    "verified": false,
+    "authors": [
+        "fengjiahe"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse",
+        "<p>",
+        {
+            "zh_CN": "该应用运行时会在内置存储中自动创建名为“MIUI”文件夹。"
+        }
+    ]
+}

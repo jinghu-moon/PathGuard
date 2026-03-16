@@ -1,0 +1,14 @@
+{
+    "package": "org.mozilla.firefox",
+    "verified": true,
+    "authors": [
+        "rly61"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

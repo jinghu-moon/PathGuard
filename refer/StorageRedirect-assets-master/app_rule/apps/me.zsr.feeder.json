@@ -1,0 +1,14 @@
+{
+    "package": "me.zsr.feeder",
+    "verified": false,
+    "authors": [
+        "MasterOfStar"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

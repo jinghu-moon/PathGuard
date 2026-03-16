@@ -1,0 +1,14 @@
+{
+    "package": "com.yong.school",
+    "verified": true,
+    "authors": [
+        "BlackYau"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

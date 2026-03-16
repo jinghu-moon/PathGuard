@@ -1,0 +1,18 @@
+{
+    "package": "com.server.auditor.ssh.client",
+    "verified": true,
+    "authors": [
+        "Trumeet"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard",
+        "<p>",
+        {
+            "zh_CN": "开启后会影响本地终端的文件浏览功能。"
+        }
+    ]
+}

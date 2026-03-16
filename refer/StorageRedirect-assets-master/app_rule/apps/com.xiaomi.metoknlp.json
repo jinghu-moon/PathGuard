@@ -1,0 +1,14 @@
+{
+    "package": "com.xiaomi.metoknlp",
+    "verified": true,
+    "authors": [
+        "ArthurCyy"
+    ],
+    "last_update": {
+        "timestamp": 1665822660
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

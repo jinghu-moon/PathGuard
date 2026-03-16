@@ -1,0 +1,14 @@
+{
+    "package": "dev.ukanth.ufirewall",
+    "verified": true,
+    "authors": [
+        "Yeyongmeng29"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

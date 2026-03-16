@@ -1,0 +1,14 @@
+{
+    "package": "com.msd.consumerChinese",
+    "verified": false,
+    "authors": [
+        "BlackYau"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

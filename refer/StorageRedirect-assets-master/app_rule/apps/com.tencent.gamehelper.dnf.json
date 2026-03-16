@@ -1,0 +1,15 @@
+{
+    "package": "com.tencent.gamehelper.dnf",
+    "verified": false,
+    "authors": [
+        "NeverSettle0528",
+        "TioaTyan"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

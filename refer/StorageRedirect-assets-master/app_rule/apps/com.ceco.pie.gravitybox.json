@@ -1,0 +1,14 @@
+{
+    "package": "com.ceco.pie.gravitybox",
+    "verified": true,
+    "authors": [
+        "Trumeet"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

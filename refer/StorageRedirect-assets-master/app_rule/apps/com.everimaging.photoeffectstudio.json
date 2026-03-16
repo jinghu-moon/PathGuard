@@ -1,0 +1,27 @@
+{
+    "package": "com.everimaging.photoeffectstudio",
+    "verified": false,
+    "authors": [
+        "LancelotGaronne"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ],
+    "export_folders": {
+        "data": {
+            "saved_pictures_0": {
+                "title": "@saved_pictures",
+                "source": "Fotor_PES",
+                "target": "Pictures/Fotor",
+                "call_media_scan": true,
+                "add_to_downloads": true,
+                "allow_child": false,
+                "allow_temp": false
+            }
+        }
+    }
+}

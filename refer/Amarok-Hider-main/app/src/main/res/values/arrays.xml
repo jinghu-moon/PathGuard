@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="root_app_packages" translatable="false">
+        <!-- Root managers -->
+        <item>com.topjohnwu.magisk</item>           <!-- Magisk -->
+        <item>io.github.vvb2060.magisk</item>       <!-- Magisk Alpha -->
+        <item>me.weishu.kernelsu</item>             <!-- KernelSU Manager -->
+        <item>com.sukisu.ultra</item>               <!-- SukiSU-Ultra -->
+        <item>com.rifsxd.ksunext</item>             <!-- KernelSU Next -->
+
+        <!-- Non-root privilege escalation managers -->
+        <item>moe.shizuku.privileged.api</item>     <!-- Shizuku -->
+        <item>com.rosan.dhizuku</item>           <!-- Dhizuku -->
+
+        <!-- Xposed frameworks -->
+        <item>org.lsposed.manager</item>             <!-- LSPosed -->
+        <item>de.robv.android.xposed.installer</item> <!-- Xposed Installer -->
+        <item>org.meowcat.edxposed.manager</item>    <!-- EdXposed Manager -->
+        <item>com.solohsu.android.edxp.manager</item> <!-- EdXposed Manager (Old) -->
+        <item>me.weishu.exp</item>                   <!-- TaiChi -->
+    </string-array>
+</resources> 

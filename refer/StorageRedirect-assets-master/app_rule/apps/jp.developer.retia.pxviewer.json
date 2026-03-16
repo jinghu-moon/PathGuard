@@ -1,0 +1,14 @@
+{
+    "package": "jp.developer.retia.pxviewer",
+    "verified": true,
+    "authors": [
+        "qylmr4621"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

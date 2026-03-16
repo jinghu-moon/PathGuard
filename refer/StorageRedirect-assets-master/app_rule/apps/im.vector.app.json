@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "IJustWantANamePlease"
+  ],
+  "verified": true,
+  "package": "im.vector.app",
+  "recommendation": "@unnecessary",
+  "non_standard_files": [],
+  "last_update": {
+    "target_api": 33,
+    "flags": "read_storage, write_storage",
+    "timestamp": 1669116706,
+    "version_name": "1.5.7",
+    "version_code": 40105072
+  },
+  "behaviors": [
+    "@standard"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+    "package": "com.tencent.tmgp.projectg",
+    "verified": false,
+    "authors": [
+        "Merlyx"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@not_recommended",
+    "behaviors": [
+        {
+            "zh_CN": "开启重定向可能会被厂商封号。"
+        }
+    ]
+}

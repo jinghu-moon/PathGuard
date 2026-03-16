@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = "https://maven.pkg.jetbrains.space/public/p/compose/dev" }
+        // jitpack: libsu
+        maven { url = "https://jitpack.io" }
+    }
+}
+
+rootProject.name = "folder-manager-gui"
+include(":app")

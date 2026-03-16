@@ -1,0 +1,16 @@
+{
+  "package": "com.sec.android.app.voicenote",
+  "verified": true,
+  "authors": [
+    "JohnZhang1810"
+  ],
+  "last_update": {
+    "timestamp": 1649768588,
+    "version_name": "21.3.50.34",
+    "version_code": 2021350340
+  },
+  "recommendation": "@unnecessary",
+  "behaviors": [
+    "@standard"
+  ]
+}

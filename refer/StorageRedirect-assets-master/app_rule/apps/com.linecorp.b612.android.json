@@ -1,0 +1,15 @@
+{
+    "package": "com.linecorp.b612.android",
+    "verified": true,
+    "authors": [
+        "atfa",
+        "sakuyamaij"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

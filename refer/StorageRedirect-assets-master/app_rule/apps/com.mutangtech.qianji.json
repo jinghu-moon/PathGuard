@@ -1,0 +1,20 @@
+{
+    "authors": [
+        "OldFanta",
+        "IJustWantANamePlease"
+    ],
+    "verified": true,
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ],
+    "last_update": {
+        "target_api": 31,
+        "flags": "read_storage, write_storage",
+        "version_name": "3.2.1.9",
+        "version_code": 710,
+        "timestamp": 1673054337
+    },
+    "non_standard_files": [],
+    "package": "com.mutangtech.qianji"
+}

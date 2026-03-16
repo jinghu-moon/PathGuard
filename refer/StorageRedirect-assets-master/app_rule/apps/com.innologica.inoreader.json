@@ -1,0 +1,18 @@
+{
+  "label": "Inoreader",
+  "verified": true,
+  "package": "com.innologica.inoreader",
+  "authors": [
+    "msdx321",
+    "sakuyamaij"
+  ],
+  "last_update": {
+    "timestamp": 1592100665,
+    "version_name": "6.3.5",
+    "version_code": 600
+  },
+  "recommendation": "@unnecessary",
+  "behaviors": [
+    "@standard"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+    "package": "com.gy.xposed.skip",
+    "verified": false,
+    "authors": [
+        "Robosky"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

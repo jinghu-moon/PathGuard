@@ -1,0 +1,14 @@
+{
+    "package": "com.bankcomm.maidanba",
+    "verified": false,
+    "authors": [
+        "SeanChengN"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

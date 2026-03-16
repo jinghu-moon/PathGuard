@@ -1,0 +1,14 @@
+{
+    "package": "android.substratum.service",
+    "verified": true,
+    "authors": [
+        "slowbear"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

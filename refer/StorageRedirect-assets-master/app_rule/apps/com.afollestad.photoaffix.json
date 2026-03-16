@@ -1,0 +1,24 @@
+{
+    "package": "com.afollestad.photoaffix",
+    "verified": false,
+    "authors": [
+        "FoobarRogers"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ],
+    "export_folders": {
+        "data": {
+            "saved_pictures_0": {
+                "title": "@saved_pictures",
+                "source": "PhotoAffix BETA",
+                "target": "Pictures/PhotoAffix",
+                "call_media_scan": true
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "package": "com.augustus.piccool",
+    "verified": true,
+    "authors": [
+        "Vstory"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

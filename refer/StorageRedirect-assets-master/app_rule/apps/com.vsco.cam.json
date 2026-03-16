@@ -1,0 +1,18 @@
+{
+    "package": "com.vsco.cam",
+    "verified": true,
+    "authors": [
+        "OldFanta"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard",
+        "<p>",
+        {
+            "zh_CN_#Hans": "符合规范，无坏行为"
+        }
+    ]
+}

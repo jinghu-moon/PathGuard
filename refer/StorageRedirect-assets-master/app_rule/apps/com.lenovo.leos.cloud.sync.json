@@ -1,0 +1,24 @@
+{
+    "package": "com.lenovo.leos.cloud.sync",
+    "verified": false,
+    "authors": [
+        "TinkMingKing"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ],
+    "export_folders": {
+        "data": {
+            "downloaded_pictures_0": {
+                "title": "@downloaded_pictures",
+                "source": "LesyncDownload/Photo",
+                "target": "Pictures/Lesync",
+                "call_media_scan": true
+            }
+        }
+    }
+}

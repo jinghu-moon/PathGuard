@@ -1,0 +1,14 @@
+{
+    "package": "xyz.klinker.messenger",
+    "verified": true,
+    "authors": [
+        "Youxikong"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

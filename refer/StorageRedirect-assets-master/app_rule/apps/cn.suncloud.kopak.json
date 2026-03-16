@@ -1,0 +1,14 @@
+{
+    "package": "cn.suncloud.kopak",
+    "verified": false,
+    "authors": [
+        "Hyalincry"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

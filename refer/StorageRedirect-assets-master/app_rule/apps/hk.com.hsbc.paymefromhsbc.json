@@ -1,0 +1,14 @@
+{
+    "package": "hk.com.hsbc.paymefromhsbc",
+    "verified": true,
+    "authors": [
+        "TonyRL"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard"
+    ]
+}

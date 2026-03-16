@@ -1,0 +1,18 @@
+{
+    "package": "eu.tsoml.graphicssettings",
+    "verified": true,
+    "authors": [
+        "Cyanogen-Mod"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard",
+        "<p>",
+        {
+            "zh_CN": "重定向将导致无法更改画质等"
+        }
+    ]
+}

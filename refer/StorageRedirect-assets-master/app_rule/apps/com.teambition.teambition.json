@@ -1,0 +1,14 @@
+{
+    "package": "com.teambition.teambition",
+    "verified": false,
+    "authors": [
+        "NoDocCat"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

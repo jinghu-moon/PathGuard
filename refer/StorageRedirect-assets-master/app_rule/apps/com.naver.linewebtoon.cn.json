@@ -1,0 +1,14 @@
+{
+    "package": "com.naver.linewebtoon.cn",
+    "verified": false,
+    "authors": [
+        "kpwd"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@recommended",
+    "behaviors": [
+        "@abuse"
+    ]
+}

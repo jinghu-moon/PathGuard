@@ -1,0 +1,20 @@
+{
+    "package": "nextapp.fx",
+    "verified": true,
+    "authors": [
+        "KiritoMiao"
+    ],
+    "last_update": {
+        "timestamp": 1573909761
+    },
+    "recommendation": "@unnecessary",
+    "behaviors": [
+        "@standard",
+        "<p>",
+        {
+            "zh": "这是一个文件管理器。",
+            "en": "This is a file manager app.",
+            "overwrite_default": false
+        }
+    ]
+}
