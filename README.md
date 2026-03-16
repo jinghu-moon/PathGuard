@@ -1,4 +1,6 @@
-# Folder Manager Magisk Module
+# PathGuard
+
+[![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](LICENSE)
 
 这是一个基于 `Magisk + Zygisk + C++` 的原生模块工程。
 仅支持 **Android 12 及以上（API 31）**，安装时会做版本校验。
