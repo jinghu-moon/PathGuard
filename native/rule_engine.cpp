@@ -1264,15 +1264,15 @@ bool ParseRulesIni(std::string_view text, ParsedRules* out_rules) {
                             std::vector<std::string> extensions;
                             if (!ParseTypeFilter(right_raw, &right, &extensions)) {
                                 AddError(out_rules, line_number, "invalid types filter");
-                                continue;
+                            } else {
+                                ParsedRuleLine rule;
+                                rule.action = (split == alias) ? RuleAction::kRedirectDynamic : RuleAction::kRedirect;
+                                rule.path.assign(left);
+                                rule.redirect_target.assign(right);
+                                rule.extensions = std::move(extensions);
+                                rule.line_number = line_number;
+                                current_policy->rules.push_back(std::move(rule));
                             }
-                            ParsedRuleLine rule;
-                            rule.action = (split == alias) ? RuleAction::kRedirectDynamic : RuleAction::kRedirect;
-                            rule.path.assign(left);
-                            rule.redirect_target.assign(right);
-                            rule.extensions = std::move(extensions);
-                            rule.line_number = line_number;
-                            current_policy->rules.push_back(std::move(rule));
                         }
                     }
                 }
