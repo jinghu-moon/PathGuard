@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Folder Manager</string>
+    <string name="rules_path_label">Rules: /data/adb/modules/folder_manager/config/rules.ini</string>
+    <string name="status_idle">Status: Idle</string>
+    <string name="action_load">Load Rules</string>
+    <string name="action_save_reload">Save &amp; Reload</string>
+    <string name="action_reload">Reload Only</string>
+    <string name="action_more">More</string>
+    <string name="media_query_label">media_query</string>
+    <string name="media_query_apply">Apply</string>
+    <string name="please_grant_root">Please grant Root permission and reopen the app</string>
+    <string name="welcome_title">Folder Manager</string>
+    <string name="welcome_desc">This app requires Root permission to read/write module rule files.
+Tap the button below to grant access.</string>
+    <string name="welcome_grant">Grant Root Permission</string>
+    <string name="welcome_checking">Checking permission…</string>
+
+    <!-- Preset rules -->
+    <string name="action_insert_preset">Insert Preset Rule</string>
+    <string name="preset_verified">Verified</string>
+    <string name="preset_community">Community</string>
+
+    <!-- Rule editor -->
+    <string name="action_rule_editor">Add Rule (GUI)</string>
+
+    <!-- Logs -->
+    <string name="log_daemon">View daemon.log</string>
+    <string name="log_access">View access.log</string>
+    <string name="log_hit_stats">View Hit Stats</string>
+
+    <!-- Module settings -->
+    <string name="action_module_settings">Module Settings</string>
+    <string name="module_conf_label">module.conf</string>
+    <string name="module_conf_save">Save Config</string>
+
+    <!-- Root environment -->
+    <string name="root_env_magisk">Magisk</string>
+    <string name="root_env_kernelsu">KernelSU</string>
+    <string name="root_env_apatch">APatch</string>
+    <string name="root_env_unknown">Unknown Root</string>
+    <string name="root_env_incompatible">Root environment not fully compatible</string>
+
+    <!-- Sandbox -->
+    <string name="sandbox_title">Rule Sandbox</string>
+    <string name="sandbox_pkg_hint">Package name (e.g. com.tencent.mm)</string>
+    <string name="sandbox_path_hint">Access path (e.g. DCIM/Camera)</string>
+    <string name="sandbox_run">Test</string>
+    <string name="sandbox_no_match">No matching rule found</string>
+
+    <!-- Daemon status -->
+    <string name="daemon_status_title">Daemon Status</string>
+    <string name="daemon_running">Running</string>
+    <string name="daemon_stopped">Stopped</string>
+
+    <!-- Templates -->
+    <string name="tpl_save_user">Save as Template</string>
+    <string name="tpl_delete">Delete</string>
+    <string name="tpl_builtin_badge">Built-in</string>
+    <string name="tpl_user_badge">Custom</string>
+
+    <!-- Batch ops -->
+    <string name="batch_enable">Enable Selected</string>
+    <string name="batch_disable">Disable Selected</string>
+    <string name="batch_delete">Delete Selected</string>
+
+    <!-- Share / import -->
+    <string name="share_rules">Share Rules</string>
+    <string name="import_from_share">Import from Share</string>
+</resources>
