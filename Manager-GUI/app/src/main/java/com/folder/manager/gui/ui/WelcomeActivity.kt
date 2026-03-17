@@ -1,10 +1,12 @@
 package com.folder.manager.gui.ui
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -16,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import com.folder.manager.gui.MainActivity
 import com.folder.manager.gui.R
+import com.folder.manager.gui.data.NotificationHelper
 import com.folder.manager.gui.ui.theme.GeistTheme
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.Dispatchers
@@ -27,10 +30,19 @@ import kotlinx.coroutines.withContext
  */
 class WelcomeActivity : ComponentActivity() {
 
+    private val notifPermLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { /* 用户选择后继续，不强制要求 */ }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
+        // 初始化通知渠道
+        NotificationHelper.createChannels(this)
+        // Android 13+ 请求通知权限
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            notifPermLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+        }
         // Shell already ready (process reuse) — skip welcome screen
         if (Shell.isAppGrantedRoot() == true) {
             goMain()
