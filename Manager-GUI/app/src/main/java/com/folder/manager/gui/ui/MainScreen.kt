@@ -22,6 +22,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.folder.manager.gui.R
@@ -106,6 +107,13 @@ fun MainScreen(
     var diffResult          by remember { mutableStateOf<com.folder.manager.gui.data.RulesDiff.DiffResult?>(null) }
     var savedRulesSnapshot  by remember { mutableStateOf("") }  // 用于 diff 对比的上次保存版本
 
+    val snackbarHostState = remember { SnackbarHostState() }
+    val coroutineScope = rememberCoroutineScope()
+
+    fun showSnack(msg: String) {
+        coroutineScope.launch { snackbarHostState.showSnackbar(msg, duration = SnackbarDuration.Short) }
+    }
+
     val mqOptions  = remember { listOf("auto", "true", "false") }
     var mqSelected by remember { mutableStateOf(mqOptions[0]) }
     val templates  = remember { buildTemplates() }
@@ -117,7 +125,9 @@ fun MainScreen(
     fun runAsync(block: () -> Pair<String, String>) {
         executor.execute {
             val (ok, err) = block()
-            post { statusMsg = if (err.isEmpty()) ok else err }
+            val msg = if (err.isEmpty()) ok else err
+            post { statusMsg = msg }
+            if (msg.isNotEmpty()) showSnack(msg)
         }
     }
 
@@ -138,6 +148,7 @@ fun MainScreen(
 
     // ---- scaffold -----------------------------------------------------------
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.app_name)) },
@@ -367,14 +378,19 @@ fun MainScreen(
         var autoRefresh by remember { mutableStateOf(isAccessLog) }
         var selectedLogLine by remember { mutableStateOf<String?>(null) }
         if (autoRefresh && isAccessLog) {
-            LaunchedEffect(Unit) {
-                while (isActive) {
-                    delay(3_000L)
-                    val r = RulesRepository.readLog(LogType.ACCESS)
-                    showLogContent = r.getOrElse { "加载失败：${it.message}" }
-                    // 告警检查
-                    executor.execute { com.folder.manager.gui.data.AlertWatcher.checkNewEntries(context) }
+            DisposableEffect(Unit) {
+                val logFile = java.io.File("/data/adb/modules/folder_manager/run/access.log")
+                val observer = object : android.os.FileObserver(logFile, android.os.FileObserver.CLOSE_WRITE or android.os.FileObserver.MODIFY) {
+                    override fun onEvent(event: Int, path: String?) {
+                        val r = RulesRepository.readLog(LogType.ACCESS)
+                        mainHandler.post {
+                            showLogContent = r.getOrElse { "加载失败：${it.message}" }
+                        }
+                        executor.execute { com.folder.manager.gui.data.AlertWatcher.checkNewEntries(context) }
+                    }
                 }
+                observer.startWatching()
+                onDispose { observer.stopWatching() }
             }
         }
         // 白名单快速豁免 Dialog
@@ -384,22 +400,43 @@ fun MainScreen(
             val path = pathRegex.find(logLine)?.groupValues?.get(1)?.trim() ?: ""
             val pkg  = pkgRegex.find(logLine)?.groupValues?.get(1)?.trim() ?: ""
             if (path.isNotEmpty() && pkg.isNotEmpty()) {
+                val exemption = "+ $path"
+                val sectionHeader = "[$pkg]"
+                val previewText = if (rulesText.contains(sectionHeader)) {
+                    "在已有 section [$pkg] 下插入：\n$exemption"
+                } else {
+                    "新建 section：\n$sectionHeader\nmode = whitelist\nenabled = true\n$exemption"
+                }
                 AlertDialog(
                     onDismissRequest = { selectedLogLine = null },
                     title = { Text("快速添加豁免") },
-                    text = { Text("为 $pkg 添加允许规则：\n+ $path") },
+                    text = {
+                        Column {
+                            Text("包名：$pkg", style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            Spacer(Modifier.height(8.dp))
+                            Surface(
+                                color = MaterialTheme.colorScheme.surfaceVariant,
+                                shape = MaterialTheme.shapes.small,
+                            ) {
+                                Text(
+                                    text = previewText,
+                                    style = MaterialTheme.typography.bodySmall.copy(fontFamily = FontFamily.Monospace),
+                                    color = androidx.compose.ui.graphics.Color(0xFF4CAF50),
+                                    modifier = Modifier.padding(10.dp),
+                                )
+                            }
+                        }
+                    },
                     confirmButton = {
                         TextButton(onClick = {
                             selectedLogLine = null
-                            // 在对应 section 下插入 + path
-                            val exemption = "+ $path"
-                            val sectionHeader = "[$pkg]"
                             rulesText = if (rulesText.contains(sectionHeader)) {
                                 rulesText.replace(sectionHeader, "$sectionHeader\n$exemption")
                             } else {
-                                rulesText + "\n[$pkg]\nmode = whitelist\nenabled = true\n$exemption\n"
+                                rulesText + "\n$sectionHeader\nmode = whitelist\nenabled = true\n$exemption\n"
                             }
-                            statusMsg = "豁免规则已添加"
+                            showSnack("豁免规则已添加")
                         }) { Text("添加") }
                     },
                     dismissButton = { TextButton(onClick = { selectedLogLine = null }) { Text("取消") } },
@@ -561,6 +598,7 @@ fun MainScreen(
     if (showPresetSheet) {
         val presets = remember { PresetRepository.listPresets(context) }
         var presetFilter by remember { mutableStateOf("") }
+        var pendingPresetContent by remember { mutableStateOf<Pair<String, String>?>(null) } // name to content
         val filteredPresets = remember(presets, presetFilter) {
             if (presetFilter.isBlank()) presets
             else presets.filter {
@@ -569,6 +607,50 @@ fun MainScreen(
             }
         }
         ModalBottomSheet(onDismissRequest = { showPresetSheet = false; presetFilter = "" }) {
+            // Diff 预览确认 Dialog
+            pendingPresetContent?.let { (name, content) ->
+                val diff = remember(content) {
+                    com.folder.manager.gui.data.RulesDiff.diff(rulesText, rulesText + "\n" + content)
+                }
+                AlertDialog(
+                    onDismissRequest = { pendingPresetContent = null },
+                    title = { Text("预设预览：$name") },
+                    text = {
+                        Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                            diff.lines.take(60).forEach { line ->
+                                val (color, prefix) = when (line.type) {
+                                    com.folder.manager.gui.data.RulesDiff.DiffType.ADDED ->
+                                        androidx.compose.ui.graphics.Color(0xFF4CAF50) to "+ "
+                                    com.folder.manager.gui.data.RulesDiff.DiffType.REMOVED ->
+                                        MaterialTheme.colorScheme.error to "- "
+                                    else -> MaterialTheme.colorScheme.onSurface to "  "
+                                }
+                                Text(
+                                    text = prefix + line.line,
+                                    style = MaterialTheme.typography.bodySmall.copy(fontFamily = FontFamily.Monospace),
+                                    color = color,
+                                )
+                            }
+                            if (diff.lines.size > 60)
+                                Text("…还有 ${diff.lines.size - 60} 行",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        }
+                    },
+                    confirmButton = {
+                        TextButton(onClick = {
+                            rulesText += "\n$content\n"
+                            showSnack("已插入预设：$name")
+                            pendingPresetContent = null
+                            showPresetSheet = false
+                            presetFilter = ""
+                        }) { Text("插入") }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = { pendingPresetContent = null }) { Text("取消") }
+                    },
+                )
+            }
             Text(stringResource(R.string.action_insert_preset), style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp))
             OutlinedTextField(
@@ -607,10 +689,9 @@ fun MainScreen(
                                 executor.execute {
                                     val r = PresetRepository.loadPresetContent(context, meta.fileName)
                                     post {
-                                        r.onSuccess { rulesText += "\n$it\n"; statusMsg = "已插入预设：${meta.name}" }
-                                         .onFailure { statusMsg = "预设加载失败：${it.message}" }
-                                        showPresetSheet = false
-                                        presetFilter = ""
+                                        r.onSuccess { content ->
+                                            pendingPresetContent = meta.name to content
+                                        }.onFailure { statusMsg = "预设加载失败：${it.message}" }
                                     }
                                 }
                             },
@@ -671,8 +752,14 @@ fun MainScreen(
 
     // ---- 规则概览 BottomSheet ---------------------------------------------
     if (showOverviewSheet) {
-        val sections = remember(rulesText) { RuleSectionParser.parse(rulesText) }
-        val redirectFlows = remember(rulesText) { parseRedirectFlows(rulesText) }
+        val sections by produceState(emptyList<RuleSectionParser.RuleSection>(), rulesText) {
+            delay(300)
+            value = RuleSectionParser.parse(rulesText)
+        }
+        val redirectFlows by produceState(emptyList<RedirectFlow>(), rulesText) {
+            delay(300)
+            value = parseRedirectFlows(rulesText)
+        }
         var expandedPkg by remember { mutableStateOf<String?>(null) }
         var showFlowTab by remember { mutableStateOf(false) }
         ModalBottomSheet(onDismissRequest = { showOverviewSheet = false }) {

@@ -194,7 +194,14 @@ public:
     bool Push(MoveTask task) {
         std::lock_guard<std::mutex> lock(mutex_);
         if (queue_.size() >= kQueueLimit) {
-            queue_.pop_front();
+            // 按源路径去重：移除同路径的旧任务，保留最新
+            auto it = std::find_if(queue_.begin(), queue_.end(),
+                [&](const MoveTask& t) { return t.source_path == task.source_path; });
+            if (it != queue_.end()) {
+                queue_.erase(it);
+            } else {
+                queue_.pop_front();  // 无同路径任务时才丢弃最旧
+            }
         }
         queue_.push_back(std::move(task));
         condition_.notify_one();
@@ -604,21 +611,63 @@ bool CopyFileChunked(const std::string& source, const std::string& target, const
         close(src_fd);
         return false;
     }
-    off_t offset = 0;
-    off_t remaining = st.st_size;
-    while (remaining > 0) {
-        ssize_t sent = sendfile(dst_fd, src_fd, &offset, static_cast<size_t>(remaining));
-        if (sent <= 0) {
+    off64_t remaining = st.st_size;
+    bool ok = true;
+#if defined(__NR_copy_file_range)
+    // 优先使用 copy_file_range（内核零拷贝，Android 10+）
+    {
+        off64_t off_in = 0, off_out = 0;
+        bool cfr_ok = true;
+        off64_t rem = remaining;
+        while (rem > 0) {
+            ssize_t n = static_cast<ssize_t>(syscall(__NR_copy_file_range,
+                src_fd, &off_in, dst_fd, &off_out,
+                static_cast<size_t>(rem), 0));
+            if (n < 0) {
+                if (errno == ENOSYS || errno == EXDEV || errno == EINVAL) {
+                    cfr_ok = false;  // 内核不支持，fallback
+                } else {
+                    ok = false;
+                }
+                break;
+            }
+            rem -= n;
+        }
+        if (cfr_ok && rem == 0) {
+            // copy_file_range 成功
+            fsync(dst_fd);
+            close(src_fd);
+            close(dst_fd);
+            return true;
+        }
+        if (!ok) {
             close(src_fd);
             close(dst_fd);
             return false;
         }
-        remaining -= sent;
+        // fallback: 重置 offset
+        lseek(src_fd, 0, SEEK_SET);
+        lseek(dst_fd, 0, SEEK_SET);
+        ftruncate(dst_fd, 0);
+    }
+#endif
+    // fallback: sendfile
+    {
+        off_t offset = 0;
+        off_t rem = static_cast<off_t>(remaining);
+        while (rem > 0) {
+            ssize_t sent = sendfile(dst_fd, src_fd, &offset, static_cast<size_t>(rem));
+            if (sent <= 0) {
+                ok = false;
+                break;
+            }
+            rem -= sent;
+        }
     }
     fsync(dst_fd);
     close(src_fd);
     close(dst_fd);
-    return true;
+    return ok;
 }
 
 bool MoveFile(const std::string& source, const std::string& target) {
@@ -1617,7 +1666,8 @@ int InitFanotify() {
         LogPrint(ANDROID_LOG_ERROR, "fanotify_init failed: errno=%d", errno);
         return -1;
     }
-    if (fm_fanotify_mark(fan_fd, FAN_MARK_ADD | FAN_MARK_MOUNT, FAN_CLOSE_WRITE, AT_FDCWD, "/data/media") != 0) {
+    if (fm_fanotify_mark(fan_fd, FAN_MARK_ADD | FAN_MARK_MOUNT,
+            FAN_CLOSE_WRITE | FAN_MOVED_TO, AT_FDCWD, "/data/media") != 0) {
         LogPrint(ANDROID_LOG_ERROR, "fanotify_mark failed: errno=%d", errno);
         close(fan_fd);
         return -1;
@@ -1730,7 +1780,7 @@ int main(int argc, char* argv[]) {
                 meta = FAN_EVENT_NEXT(meta, bytes);
                 continue;
             }
-            if ((meta->mask & FAN_CLOSE_WRITE) == 0) {
+            if ((meta->mask & (FAN_CLOSE_WRITE | FAN_MOVED_TO)) == 0) {
                 meta = FAN_EVENT_NEXT(meta, bytes);
                 continue;
             }
@@ -1748,26 +1798,37 @@ int main(int argc, char* argv[]) {
                 }
                 info = FAN_EVENT_INFO_NEXT(info, end);
             }
-            if (pidfd < 0 || fid_info == nullptr || (meta->mask & (FAN_NOPIDFD | FAN_EPIDFD)) != 0) {
-                if (pidfd >= 0) {
-                    close(pidfd);
-                }
+            if (fid_info == nullptr) {
+                if (pidfd >= 0) close(pidfd);
+                meta = FAN_EVENT_NEXT(meta, bytes);
+                continue;
+            }
+            // FAN_MOVED_TO 可能无 pidfd，此时用通配包名匹配
+            const bool is_moved_to = (meta->mask & FAN_MOVED_TO) != 0;
+            const bool no_pidfd = pidfd < 0 || (meta->mask & (FAN_NOPIDFD | FAN_EPIDFD)) != 0;
+            if (!is_moved_to && no_pidfd) {
+                if (pidfd >= 0) close(pidfd);
                 meta = FAN_EVENT_NEXT(meta, bytes);
                 continue;
             }
 
             pid_t pid = -1;
-            if (!ResolvePidFromPidfd(pidfd, &pid)) {
-                close(pidfd);
-                meta = FAN_EVENT_NEXT(meta, bytes);
-                continue;
-            }
-            close(pidfd);
-
             std::string package_name;
-            if (!ReadPackageFromPid(pid, &package_name)) {
-                meta = FAN_EVENT_NEXT(meta, bytes);
-                continue;
+            if (!no_pidfd) {
+                if (!ResolvePidFromPidfd(pidfd, &pid)) {
+                    close(pidfd);
+                    meta = FAN_EVENT_NEXT(meta, bytes);
+                    continue;
+                }
+                close(pidfd);
+                if (!ReadPackageFromPid(pid, &package_name)) {
+                    meta = FAN_EVENT_NEXT(meta, bytes);
+                    continue;
+                }
+            } else {
+                // FAN_MOVED_TO 无进程信息，使用通配包名
+                if (pidfd >= 0) close(pidfd);
+                package_name = "*";
             }
 
             std::string data_media_path;
