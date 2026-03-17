@@ -1,11 +1,11 @@
 #include "path_kind_cache.h"
 
-#include <utility>
+#include <mutex>
 
 namespace fm {
 
 bool ResolvedPathKindCache::TryGet(std::string_view path, PathKind* out_kind) const {
-    std::shared_lock<std::shared_mutex> lock(mutex_);
+    std::unique_lock<std::mutex> lock(mutex_);
     auto it = values_.find(path);
     if (it == values_.end()) {
         return false;
@@ -17,7 +17,7 @@ bool ResolvedPathKindCache::TryGet(std::string_view path, PathKind* out_kind) co
 }
 
 void ResolvedPathKindCache::Put(std::string_view path, PathKind kind) {
-    std::unique_lock<std::shared_mutex> lock(mutex_);
+    std::unique_lock<std::mutex> lock(mutex_);
     auto it = values_.find(path);
     if (it != values_.end()) {
         it->second = kind;
@@ -27,7 +27,7 @@ void ResolvedPathKindCache::Put(std::string_view path, PathKind kind) {
 }
 
 void ResolvedPathKindCache::Erase(std::string_view path) {
-    std::unique_lock<std::shared_mutex> lock(mutex_);
+    std::unique_lock<std::mutex> lock(mutex_);
     auto it = values_.find(path);
     if (it != values_.end()) {
         values_.erase(it);
@@ -35,17 +35,17 @@ void ResolvedPathKindCache::Erase(std::string_view path) {
 }
 
 void ResolvedPathKindCache::Clear() {
-    std::unique_lock<std::shared_mutex> lock(mutex_);
+    std::unique_lock<std::mutex> lock(mutex_);
     values_.clear();
 }
 
 size_t ResolvedPathKindCache::Size() const {
-    std::shared_lock<std::shared_mutex> lock(mutex_);
+    std::unique_lock<std::mutex> lock(mutex_);
     return values_.size();
 }
 
 size_t ResolvedPathKindCache::EstimatedMemoryUsage() const {
-    std::shared_lock<std::shared_mutex> lock(mutex_);
+    std::unique_lock<std::mutex> lock(mutex_);
     size_t total = sizeof(*this);
     total += values_.bucket_count() * sizeof(void*);
     for (const auto& entry : values_) {

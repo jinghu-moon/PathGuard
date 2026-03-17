@@ -1,7 +1,7 @@
 #pragma once
 
 #include <functional>
-#include <shared_mutex>
+#include <mutex>
 #include <string>
 #include <string_view>
 #include <unordered_map>
@@ -34,7 +34,7 @@ public:
     size_t EstimatedMemoryUsage() const;
 
 private:
-    mutable std::shared_mutex mutex_;
+    mutable std::mutex mutex_;
     std::unordered_map<std::string, PathKind, TransparentStringHash, std::equal_to<>> values_;
 };
 
