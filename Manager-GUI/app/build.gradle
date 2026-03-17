@@ -63,4 +63,8 @@ dependencies {
     // libsu：稳定的 root shell 管理
     implementation "com.github.topjohnwu.libsu:core:6.0.0"
     implementation "com.github.topjohnwu.libsu:io:6.0.0"
+
+    // 单元测试
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:2.0.0"
 }

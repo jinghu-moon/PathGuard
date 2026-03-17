@@ -49,6 +49,7 @@ add_executable(fm_rule_engine_tests
   tests/daemon_utils_tests.cpp
   tests/stats_tests.cpp
   tests/realworld_tests.cpp
+  tests/wildcard_tests.cpp
 )
 
 target_link_libraries(fm_rule_engine_tests PRIVATE fm_rule_engine GTest::gtest_main)

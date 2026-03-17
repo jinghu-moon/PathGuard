@@ -172,7 +172,11 @@ void FmLogAccess(const char* pkg, int pid, const char* op, const char* action, c
     std::lock_guard<std::mutex> lock(g_access_log_mutex);
     time_t now = time(nullptr);
     struct tm tm_buf = {};
+#if defined(_WIN32)
+    localtime_s(&tm_buf, &now);
+#else
     localtime_r(&now, &tm_buf);
+#endif
     char ts[32];
     strftime(ts, sizeof(ts), "%Y-%m-%dT%H:%M:%S", &tm_buf);
     FILE* f = fopen(kAccessLogPath, "a");
