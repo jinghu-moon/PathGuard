@@ -166,6 +166,9 @@ struct DynamicRuleSet {
     std::unordered_map<std::string, std::vector<DynamicRule>> rules_by_package;
     std::unordered_map<std::string, std::vector<ExportRule>> export_rules_by_package;
     std::unordered_map<std::string, std::vector<DeleteRule>> delete_rules_by_package;
+    // [*] 通配包名规则，匹配任意来源
+    std::vector<DynamicRule> wildcard_rules;
+    std::vector<DeleteRule> wildcard_delete_rules;
 };
 
 enum class TaskAction {
@@ -221,6 +224,26 @@ private:
     std::deque<MoveTask> queue_;
     bool running_ = true;
 };
+
+constexpr char kModuleConfPath[] = "/data/adb/modules/folder_manager/config/module.conf";
+
+// 读取 module.conf，返回 enabled 字段（默认 true）
+bool ReadModuleEnabled(const char* conf_path) {
+    FILE* f = fopen(conf_path, "r");
+    if (!f) return true; // 文件不存在视为 enabled
+    char line[256];
+    bool enabled = true;
+    while (fgets(line, sizeof(line), f)) {
+        char key[64] = {}, val[64] = {};
+        if (sscanf(line, " %63[^= ] = %63s", key, val) == 2) {
+            if (strcmp(key, "enabled") == 0 && strcmp(val, "false") == 0) {
+                enabled = false;
+            }
+        }
+    }
+    fclose(f);
+    return enabled;
+}
 
 std::atomic<bool> g_running{true};
 std::atomic<bool> g_reload_requested{false};
@@ -1110,6 +1133,8 @@ bool BuildDynamicRuleSet(const char* config_path, DynamicRuleSet* output, std::s
     }
     output->rules_by_package.clear();
     output->delete_rules_by_package.clear();
+    output->wildcard_rules.clear();
+    output->wildcard_delete_rules.clear();
     std::string content;
     if (!ReadFileContent(config_path, &content)) {
         if (error != nullptr) {
@@ -1182,6 +1207,22 @@ bool BuildDynamicRuleSet(const char* config_path, DynamicRuleSet* output, std::s
             compiled.glob_base_prefix = delete_rule.glob_base_prefix;
             compiled.path_glob_pattern = delete_rule.path_glob_pattern;
             output->delete_rules_by_package[compiled.package_name].push_back(std::move(compiled));
+        }
+    }
+
+    // 提取 [*] 通配规则
+    {
+        auto it = output->rules_by_package.find("*");
+        if (it != output->rules_by_package.end()) {
+            output->wildcard_rules = std::move(it->second);
+            output->rules_by_package.erase(it);
+        }
+    }
+    {
+        auto it = output->delete_rules_by_package.find("*");
+        if (it != output->delete_rules_by_package.end()) {
+            output->wildcard_delete_rules = std::move(it->second);
+            output->delete_rules_by_package.erase(it);
         }
     }
 
@@ -1265,11 +1306,18 @@ bool FindDynamicRule(const std::string& package_name,
         return false;
     }
     std::shared_lock<std::shared_mutex> lock(g_rules_mutex);
+    // 先按包名查找
     auto it = g_dynamic_rules.rules_by_package.find(package_name);
-    if (it == g_dynamic_rules.rules_by_package.end()) {
+    const std::vector<DynamicRule>* rule_list = nullptr;
+    if (it != g_dynamic_rules.rules_by_package.end()) {
+        rule_list = &it->second;
+    } else if (!g_dynamic_rules.wildcard_rules.empty()) {
+        rule_list = &g_dynamic_rules.wildcard_rules;
+    }
+    if (rule_list == nullptr) {
         return false;
     }
-    for (const auto& rule : it->second) {
+    for (const auto& rule : *rule_list) {
         if (rule.has_path_glob) {
             if (!StartsWith(canonical_path, rule.glob_base_prefix)
                 || !MatchPathGlob(rule.path_glob_pattern, canonical_path)) {
@@ -1324,10 +1372,16 @@ bool FindDeleteRule(const std::string& package_name,
     }
     std::shared_lock<std::shared_mutex> lock(g_rules_mutex);
     auto it = g_dynamic_rules.delete_rules_by_package.find(package_name);
-    if (it == g_dynamic_rules.delete_rules_by_package.end()) {
+    const std::vector<DeleteRule>* rule_list = nullptr;
+    if (it != g_dynamic_rules.delete_rules_by_package.end()) {
+        rule_list = &it->second;
+    } else if (!g_dynamic_rules.wildcard_delete_rules.empty()) {
+        rule_list = &g_dynamic_rules.wildcard_delete_rules;
+    }
+    if (rule_list == nullptr) {
         return false;
     }
-    for (const auto& rule : it->second) {
+    for (const auto& rule : *rule_list) {
         if (rule.has_path_glob) {
             if (!StartsWith(canonical_path, rule.glob_base_prefix)
                 || !MatchPathGlob(rule.path_glob_pattern, canonical_path)) {
@@ -1586,6 +1640,11 @@ int main(int argc, char* argv[]) {
 
     DynamicRuleSet initial_rules;
     std::string error;
+    fm::FmLogAccessClear();
+    if (!ReadModuleEnabled(kModuleConfPath)) {
+        LogPrint(ANDROID_LOG_INFO, "module disabled by module.conf, exiting");
+        return 0;
+    }
     if (!BuildDynamicRuleSet(config_path, &initial_rules, &error)) {
         LogPrint(ANDROID_LOG_ERROR, "dynamic engine init failed: %s", error.c_str());
         return 1;
@@ -1732,6 +1791,7 @@ int main(int argc, char* argv[]) {
 
             DeleteRule delete_rule;
             if (FindDeleteRule(package_name, canonical_path, &delete_rule)) {
+                fm::FmLogAccess(package_name.c_str(), pid, "close_write", "delete", canonical_path.c_str());
                 MoveTask task;
                 task.action = TaskAction::kDelete;
                 task.source_path = data_media_path;
@@ -1761,6 +1821,7 @@ int main(int argc, char* argv[]) {
 
             DynamicRule dynamic_rule;
             if (FindDynamicRule(package_name, canonical_path, &dynamic_rule)) {
+                fm::FmLogAccess(package_name.c_str(), pid, "close_write", "redirect", canonical_path.c_str());
                 std::string target_path;
                 if (BuildDynamicTarget(dynamic_rule, canonical_path, user_id, &target_path)) {
                     MoveTask task;

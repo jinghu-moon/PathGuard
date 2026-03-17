@@ -2,6 +2,10 @@
 
 #include <algorithm>
 #include <cctype>
+#include <cstdio>
+#include <ctime>
+#include <deque>
+#include <mutex>
 #include <string>
 
 namespace fm {
@@ -131,6 +135,63 @@ std::vector<std::string> BuildDownloadsInsertArgs(const DownloadsInsertRequest& 
     add_bind(&args, "lastmod", "l", std::to_string(mtime_ms));
 
     return args;
+}
+
+// ---------------------------------------------------------------------------
+// access.log 审计日志实现
+// ---------------------------------------------------------------------------
+
+namespace {
+
+std::mutex g_access_log_mutex;
+
+// 将 access.log 截断至最多 max_lines 行（环形保留尾部）
+void TruncateAccessLog(const char* path, int max_lines) {
+    FILE* f = fopen(path, "r");
+    if (!f) return;
+    std::deque<std::string> lines;
+    char buf[1024];
+    while (fgets(buf, sizeof(buf), f)) {
+        lines.emplace_back(buf);
+        if (static_cast<int>(lines.size()) > max_lines * 2) {
+            lines.pop_front();
+        }
+    }
+    fclose(f);
+    if (static_cast<int>(lines.size()) <= max_lines) return;
+    while (static_cast<int>(lines.size()) > max_lines) lines.pop_front();
+    FILE* w = fopen(path, "w");
+    if (!w) return;
+    for (const auto& l : lines) fputs(l.c_str(), w);
+    fclose(w);
+}
+
+}  // namespace
+
+void FmLogAccess(const char* pkg, int pid, const char* op, const char* action, const char* path) {
+    std::lock_guard<std::mutex> lock(g_access_log_mutex);
+    time_t now = time(nullptr);
+    struct tm tm_buf = {};
+    localtime_r(&now, &tm_buf);
+    char ts[32];
+    strftime(ts, sizeof(ts), "%Y-%m-%dT%H:%M:%S", &tm_buf);
+    FILE* f = fopen(kAccessLogPath, "a");
+    if (!f) return;
+    fprintf(f, "%s pid=%d pkg=%s op=%s action=%s path=%s\n",
+            ts, pid, pkg ? pkg : "", op ? op : "", action ? action : "", path ? path : "");
+    // 获取当前行数，超过阈值才截断（每 50 条检查一次，减少 I/O）
+    long pos = ftell(f);
+    fclose(f);
+    // 粗略估算：平均行长 ~120 字节，超过 max*120*1.2 才触发截断
+    if (pos > static_cast<long>(kAccessLogMaxLines) * 144) {
+        TruncateAccessLog(kAccessLogPath, kAccessLogMaxLines);
+    }
+}
+
+void FmLogAccessClear() {
+    std::lock_guard<std::mutex> lock(g_access_log_mutex);
+    FILE* f = fopen(kAccessLogPath, "w");
+    if (f) fclose(f);
 }
 
 }  // namespace fm

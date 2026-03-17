@@ -6,6 +6,19 @@
 
 namespace fm {
 
+// access.log 路径，启动时清空，最多保留 max_log_lines 条
+inline constexpr char kAccessLogPath[] = "/data/adb/modules/folder_manager/run/access.log";
+constexpr int kAccessLogMaxLines = 500;
+
+/**
+ * 写入一条结构化审计日志到 access.log。
+ * 格式：timestamp pid=N pkg=X op=Y action=Z path=P
+ */
+void FmLogAccess(const char* pkg, int pid, const char* op, const char* action, const char* path);
+
+/** 启动时清空 access.log */
+void FmLogAccessClear();
+
 inline constexpr char kDownloadsContentUri[] = "content://downloads/my_downloads";
 inline constexpr char kNonDownloadManagerUri[] = "non-dwnldmngr-download-dont-retry2download";
 inline constexpr char kContentCmdPath[] = "/system/bin/content";
